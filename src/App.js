@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import logo from './logo.svg';
 import './App.css';
-import UserProfile from './FormValidation/UserProfile/UserProfile';
+import DemoJSS from './JSS_StyledComponent/DemoJSS/DemoJSS';
 
 function App() {
   return (
     <div>
-      <UserProfile/>
+      <DemoJSS/>
     </div>
   );
 }
