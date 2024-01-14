@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import logo from './logo.svg';
 import './App.css';
-import DemoJSS from './JSS_StyledComponent/DemoJSS/DemoJSS';
+import { DemoThemes } from './JSS_StyledComponent/DemoThemes/DemoThemes';
 
 function App() {
   return (
     <div>
-      <DemoJSS/>
+      <DemoThemes/>
     </div>
   );
 }
