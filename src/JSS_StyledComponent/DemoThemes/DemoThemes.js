@@ -18,7 +18,7 @@ export const DemoThemes = (props) => {
     const [theme, setTheme] = useState(configDarkTheme);
 
     const handleChangeTheme = (e) => {
-        setTheme(e.target.value == "dark" ? configDarkTheme : configLightTheme);
+        setTheme(e.target.value === "dark" ? configDarkTheme : configLightTheme);
     }
 
     const DivStyle = styled.div`
