@@ -7,7 +7,7 @@ import {TextField} from '../../Components/TextField';
 import {Button} from '../../Components/Button';
 import {Table, Thead, Tbody, Tr, Td, Th} from '../../Components/Table';
 import { connect } from 'react-redux';
-import {addTaskAction} from '../../../Redux/Actions/ToDoListActions';
+import {addTaskAction, deleteTaskAction, doneTaskAction, editTaskAction} from '../../../Redux/Actions/ToDoListActions';
 import {arrTheme} from '../../DemoThemes/ToDoListTheme/ThemeManager';
 import {changeThemeAction} from '../../../Redux/Actions/ToDoListActions'
 
@@ -23,9 +23,21 @@ class ToDoList extends Component {
             return <Tr key={index}>
             <Th>{task.taskName}</Th>
             <Th className='text-right'>
-                <Button className='ml-1'><i className="fa fa-edit"></i></Button>
-                <Button className='ml-1'><i className="fa fa-check"></i></Button>
-                <Button className='ml-1'><i className="fa fa-trash"></i></Button>
+
+                {/* edit task */}  
+                <Button onClick={()=>{
+                    this.props.dispatch(editTaskAction(task))
+                }} className='ml-1'><i className="fa fa-edit"></i></Button>
+
+                {/* done task */}
+                <Button onClick={()=>{
+                    this.props.dispatch(doneTaskAction(task.id))
+                }} className='ml-1'><i className="fa fa-check"></i></Button>
+                
+                {/* delete task */}   
+                <Button onClick={()=>{
+                    this.props.dispatch(deleteTaskAction(task.id))
+                }} className='ml-1'><i className="fa fa-trash"></i></Button>
             </Th>
         </Tr>
         })
@@ -58,7 +70,7 @@ class ToDoList extends Component {
                 {this.renderTheme()}
             </Dropdown>
             <Heading2>TO DO LIST</Heading2>
-            <TextField onChange={(e) => {
+            <TextField value={this.props.taskEdit.taskName} onChange={(e) => {
                 this.setState({
                     taskName: e.target.value
                 })
@@ -74,9 +86,6 @@ class ToDoList extends Component {
                 };
                 //dua task object len redux thong qua phuong thuc dispatch
                 this.props.dispatch(addTaskAction(newTask))
-
-
-
             }} className='ml-2'><i className="fa fa-plus"></i> Add task</Button>
             <Button className='ml-2'><i className="fa fa-upload"></i> Update task</Button>
             <hr/>
@@ -102,7 +111,8 @@ class ToDoList extends Component {
 const mapStateToProps = (state) => {
     return{
         themeToDoList: state.ToDoListReducer.themeToDoList,
-        taskList: state.ToDoListReducer.taskList
+        taskList: state.ToDoListReducer.taskList,
+        taskEdit: state.ToDoListReducer.taskEdit
     }
 }
 // const mapDispatchToProps = (dispatch) => ({

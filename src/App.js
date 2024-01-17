@@ -2,12 +2,14 @@
 import logo from './logo.svg';
 import './App.css';
 import ToDoList from './JSS_StyledComponent/BaiTapStyleComponent/BaiTapToDoList/ToDoList';
+import LifeCycleReact from './LifeCycleReact/LifeCycleReact';
 
 
 function App() {
   return (
     <div>
-      <ToDoList/>
+      {/* <ToDoList/> */}
+      <LifeCycleReact/>
     </div>
   );
 }
