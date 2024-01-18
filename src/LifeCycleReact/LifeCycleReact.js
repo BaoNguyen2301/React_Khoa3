@@ -3,25 +3,36 @@ import ChildComponent from './ChildComponent'
 
 export default class LifeCycleReact extends Component {
 
-    constructor(props){
+
+    constructor(props) {
         super(props);
         this.state = {
-            number: 1
+            number: 1,
+            product: {
+                id: 1,
+                name: 'iphonex'
+            }
         }
+        console.log('contructor')
     }
 
-    //Duoc goi khi component nay dc su dung tren DOM(giao dien)
-    static getDerivedStateFromProps(newProps, currentState){
-        console.log('getDerivedStateFromProps');
+
+
+
+    //Được gọi khi component này được sử dụng trên DOM (giao diện của app)
+    static getDerivedStateFromProps(newProps, currentState) {
+        // console.log('getDerivedStateFromProps')
         return null;
     }
 
 
-    //Duoc goi khi setState hoac props
-    shouldComponentUpdate(){
-        //return true thi chay tiep cac life cycle con lai, true: chay, false: dung
+    //Được gọi khi setState hoặc props
+    shouldComponentUpdate(newProps, newState) {
+        //return true thì chạy tiếp các lifecycle còn lại, ngược lại return false thì sẽ dừng lại không chạy tiếp các lifecycle khác
         return true;
     }
+
+
 
     render() {
         console.log('renderParent');
@@ -29,25 +40,34 @@ export default class LifeCycleReact extends Component {
             <div>
                 <h1>Parent Component</h1>
                 <span>Number: {this.state.number}</span>
-                <button className='btn btn-success' onClick={()=>{
+                <button className="btn btn-success" onClick={() => {
                     this.setState({
-                        number: this.state.number + 1
+                        number: this.state.number
                     })
-                }}>click</button>
-                {this.state.number === 1 ? <ChildComponent /> : ''}
-                
+                }}>+</button>
+
+                <button className="btn btn-success" onClick={() => {
+                    let newProduct = {...this.state.product};
+                    newProduct.name = 'iphonex123';
+
+                    this.setState({
+                        product: newProduct
+                    })
+                }}>change Name Product</button>
+
+                <h3>new Product parent: {this.state.product.name}</h3>
+                <ChildComponent product={this.state.product} />
             </div>
         )
     }
-
-    //Duoc goi sau render va chi goi 1 lan duy nhat(trang thai mounting)
-    componentDidMount(){
-        console.log('componentDidMount')
+    //Được gọi sau render và chỉ gọi 1 lần duy nhất (trạng thái mounting)
+    componentDidMount() {
+        // console.log('componentDidMount')
     }
 
-
-    //Lan dau se khong goi, chi goi khi setState hoac thay doi props
-    componentDidUpdate(prevProps, prevState){
-        console.log('componentDidUpdate')
+    //Lần đầu sẽ không gọi, chỉ gọi khi setState hoặc thay đổi props 
+    componentDidUpdate(prevProps, prevState) {
+        // console.log('componentDidUpdate')
     }
+
 }

@@ -1,5 +1,5 @@
 import { type } from "@testing-library/user-event/dist/type";
-import { ADD_TASK, CHANGE_THEME, DELETE_TASK, DONE_TASK, EDIT_TASK } from "../Stypes/ToDoListTypes";
+import { ADD_TASK, CHANGE_THEME, DELETE_TASK, DONE_TASK, EDIT_TASK, UPDATE_TASK } from "../Stypes/ToDoListTypes";
 
 export const addTaskAction = (newTask) => {
     return {
@@ -28,4 +28,9 @@ export const deleteTaskAction = (taskId) => ({
 export const editTaskAction = (task) => ({
     type: EDIT_TASK,
     task
+})
+
+export const updateTaskAction = (taskName) => ({
+    type: UPDATE_TASK,
+    taskName
 })

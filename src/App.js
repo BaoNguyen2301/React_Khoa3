@@ -8,8 +8,8 @@ import LifeCycleReact from './LifeCycleReact/LifeCycleReact';
 function App() {
   return (
     <div>
-      {/* <ToDoList/> */}
-      <LifeCycleReact/>
+      <ToDoList/>
+      {/* <LifeCycleReact/> */}
     </div>
   );
 }

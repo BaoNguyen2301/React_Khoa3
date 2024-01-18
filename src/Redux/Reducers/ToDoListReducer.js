@@ -1,5 +1,5 @@
 import { ToDoListDarkTheme } from "../../JSS_StyledComponent/DemoThemes/ToDoListTheme/ToDoListDarkTheme"
-import { ADD_TASK, DELETE_TASK, DONE_TASK, EDIT_TASK } from "../Stypes/ToDoListTypes"
+import { ADD_TASK, DELETE_TASK, DONE_TASK, EDIT_TASK, UPDATE_TASK } from "../Stypes/ToDoListTypes"
 import { CHANGE_THEME } from '../Stypes/ToDoListTypes'
 import { arrTheme } from '../../JSS_StyledComponent/DemoThemes/ToDoListTheme/ThemeManager'
 
@@ -11,7 +11,7 @@ const initialState = {
         { id: 'task-3', taskName: 'task 3', done: true },
         { id: 'task-4', taskName: 'task 4', done: false },
     ],
-    taskEdit:  { id: 'task-1', taskName: 'task 1', done: false },
+    taskEdit:  { id: '-1', taskName: '', done: false },
 
 
 }
@@ -68,9 +68,25 @@ export default (state = initialState, action) => {
         }
 
         case EDIT_TASK:{
-
-
             return { ...state, taskEdit: action.task }
+        }
+
+        case UPDATE_TASK: {
+            state.taskEdit = {...state.taskEdit,taskName: action.taskName};
+
+            let taskListUdate = [...state.taskList]
+
+            let index = taskListUdate.findIndex(task => task.id === state.taskEdit.id)
+
+            if(index !== -1){
+                taskListUdate[index] = state.taskEdit;
+            }
+
+            state.taskList = taskListUdate;
+
+            state.taskEdit =  { id: '-1', taskName: '', done: false }
+
+            return {...state}
         }
 
         default:
