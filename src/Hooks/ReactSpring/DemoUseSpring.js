@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
-
 export default function DemoUseSpring(props) {
     const propsAni = useSpring({
         from: { opacity: 0 },

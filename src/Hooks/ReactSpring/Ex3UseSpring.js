@@ -1,5 +1,6 @@
 import React from 'react'
-import { useSprings, animated } from 'react-spring';
+import { animated, useSprings } from 'react-spring';
+
 
 export default function Ex3UseSpring() {
 
