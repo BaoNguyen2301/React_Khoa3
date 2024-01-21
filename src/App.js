@@ -10,6 +10,9 @@ import DemoUseReducer from './Hooks/DemoHooks/DemoUseReducer';
 import DemoUseContext from './Hooks/DemoHooks/DemoUseContext';
 import ContextProvider from './Hooks/DemoHooks/Context/ContextProvider';
 import DemoReduxApp from './Hooks/DemoHooks/DemoReduxApp';
+import DemoUseSpring from './Hooks/ReactSpring/DemoUseSpring';
+import Ex2UsePring from './Hooks/ReactSpring/Ex2UsePring';
+import Ex3UseSpring from './Hooks/ReactSpring/Ex3UseSpring';
 
 
 
@@ -24,7 +27,10 @@ function App() {
       {/* <DemoUseRef/> */}
       {/* <DemoUseReducer/> */}
       {/* <DemoUseContext/> */}
-      <DemoReduxApp/>
+      {/* <DemoReduxApp/> */}
+      {/* <DemoUseSpring/> */}
+      {/* <Ex2UsePring/> */}
+      <Ex3UseSpring/>
     </ContextProvider>
   );
 }
