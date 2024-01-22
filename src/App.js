@@ -11,6 +11,7 @@ import DemoUseContext from './Hooks/DemoHooks/DemoUseContext';
 import ContextProvider from './Hooks/DemoHooks/Context/ContextProvider';
 import DemoReduxApp from './Hooks/DemoHooks/DemoReduxApp';
 import Ex4UseTrail from './Hooks/ReactSpring/Ex4UseTrail';
+import Ex5UseTransition from './Hooks/ReactSpring/Ex5UseTransition';
 
 
 
@@ -26,7 +27,8 @@ function App() {
       {/* <DemoUseReducer/> */}
       {/* <DemoUseContext/> */}
       {/* <DemoReduxApp/> */}
-      <Ex4UseTrail/>
+      {/* <Ex4UseTrail/> */}
+      <Ex5UseTransition/>
     </ContextProvider>
   );
 }
