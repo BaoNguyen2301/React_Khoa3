@@ -29,7 +29,7 @@ export default function Ex5UseTransition() {
     }
 
     const deleteItem = (id) => {
-        setArrItem([...arrItem.filter(item => item.id !== id) ])
+        setArrItem([...arrItem.filter(item => item.id !== id)])
     }
 
     const handleChange = (e) => {
