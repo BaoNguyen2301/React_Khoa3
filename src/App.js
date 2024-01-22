@@ -13,6 +13,7 @@ import DemoReduxApp from './Hooks/DemoHooks/DemoReduxApp';
 import Ex4UseTrail from './Hooks/ReactSpring/Ex4UseTrail';
 import Ex5UseTransition from './Hooks/ReactSpring/Ex5UseTransition';
 import Ex6UseChain from './Hooks/ReactSpring/Ex6UseChain';
+import BaiTapGameBauCua from './BaiTapTongHop/BaiTapGameBauCua/BaiTapGameBauCua';
 
 
 
@@ -29,8 +30,9 @@ function App() {
       {/* <DemoUseContext/> */}
       {/* <DemoReduxApp/> */}
       {/* <Ex4UseTrail/> */}
-      {/* <Ex5UseTransition/> */}\
-      <Ex6UseChain/>
+      {/* <Ex5UseTransition/> */}
+      {/* <Ex6UseChain/> */}
+      <BaiTapGameBauCua/>
     </ContextProvider>
   );
 }
